@@ -1,0 +1,30 @@
+<html>
+<body>
+<h2>DIFFIE HELLMAN KEY EXCHANGE</h2>
+
+<script>
+
+let p=Number(prompt("Enter prime number P:"));
+let g=Number(prompt("enter primitive root G:"));
+let a=Number(prompt("enter alice priv key"));
+let b=Number(prompt("enter bob priv:"));
+
+let A=(g ** a)%p;
+let B=(g ** b)%p;
+
+let k1=(B ** a) %p;
+let k2=(A ** b) %p;
+
+document.write("Prime number P="+p+"<br>");
+document.write("Primitive root G="+g+"<br><br>");
+
+document.write("Alice  publc key "+A+"<br>");
+document.write("Bob  public key "+B+"<br><br>");
+
+document.write("Alice(shared key calc) "+k1+"<br>");
+
+document.write("Bob(shared key calc) " +k2);
+
+</script>
+</body>
+</html> 
