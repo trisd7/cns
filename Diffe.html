@@ -1,30 +1,39 @@
+<!DOCTYPE html>
 <html>
+<head>
+<title> DH</title>
+</head>
 <body>
-<h2>DIFFIE HELLMAN KEY EXCHANGE</h2>
+
+<h2> dh exchange </h2>
 
 <script>
 
-let p=Number(prompt("Enter prime number P:"));
-let g=Number(prompt("enter primitive root G:"));
-let a=Number(prompt("enter alice priv key"));
-let b=Number(prompt("enter bob priv:"));
+let p=parseInt(prompt("enter prime no:"));
 
-let A=(g ** a)%p;
-let B=(g ** b)%p;
 
-let k1=(B ** a) %p;
-let k2=(A ** b) %p;
+let g=parseInt(prompt("enter gen no:"));
 
-document.write("Prime number P="+p+"<br>");
-document.write("Primitive root G="+g+"<br><br>");
+let a =parseInt(prompt("enter priv key A:"));
+let b =parseInt(prompt("enter priv key B:"));
 
-document.write("Alice  publc key "+A+"<br>");
-document.write("Bob  public key "+B+"<br><br>");
+let A=Math.pow(g,a) % p;
 
-document.write("Alice(shared key calc) "+k1+"<br>");
+let B=Math.pow(g,b) % p;
 
-document.write("Bob(shared key calc) " +k2);
+let sharedkeyA=Math.pow(B,a) % p;
+
+let sharedkeyB=Math.pow(A,b) % p;
+
+document.write("prime no p: " + p + "<br>");
+document.write("gen no: " + g + "<br>");
+document.write("sharedkeyA: " + sharedkeyA + "<br>");
+document.write("sharedkeyA: " + sharedkeyB + "<br>");
+
+
+
+
 
 </script>
 </body>
-</html> 
+</html>
