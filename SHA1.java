@@ -1,17 +1,23 @@
-import java.util.*;
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
 import java.security.*;
-class SHA1{
-    public static void main(String[]args)throws Exception{
+import java.util.*;
+
+class SHA1 {
+    public static void main(String[] args)throws Exception{
         Scanner sc=new Scanner(System.in);
-        System.out.print("enter text:");
+        System.out.println("ENter text:");
         String text=sc.nextLine();
 
         MessageDigest md=MessageDigest.getInstance("SHA-1");
-        byte[]b=md.digest(text.getBytes());
-       System.out.println("Message Digest");
-        for(byte x:b)
-            System.out.printf("%02x",x);
-        
-        
+        byte[]hash=md.digest(text.getBytes());
+        String res=" ";
+        for(byte b:hash){
+            res+=String.format("%02x",b);
+        }
+            
+         System.out.println("original m:"+text);
+          System.out.println("message digest:"+res);
+        sc.close();
     }
 }
